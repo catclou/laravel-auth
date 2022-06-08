@@ -13,16 +13,17 @@
 
     <div class="container">
 
-        <a href="{{route('admin.posts.create')}}" class="btn btn-success m-1">Crea post</a>
+        <a href="{{route('admin.posts.create')}}" class="btn btn-success mb-3">Crea post</a>
 
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Content</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">Titolo</th>
+                    <th scope="col">Contenuto</th>
+                    <th scope="col">Immagine</th>
+                    <th scope="col">Data</th>
                     <th scope="col">Slug</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,15 +38,18 @@
                             <img src="{{ $post->image }}" alt="{{ $post->title }}" width="50">
                         </td>
                         <td>
+                            <span>{{ $post->created_at }}</span>
+                        </td>
+                        <td>
                             <span>{{ $post->slug }}</span>
                         </td>
                         <td class="d-flex flex-column">
-                            <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary m-1">View</a>
-                            <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning m-1">Edit</a>
+                            <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary m-1 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px"> <i class="fa-solid fa-eye"></i></a>
+                            <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning m-1 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px"> <i class="fa-solid fa-pen-to-square"></i></a>
                             <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="delete-form" data-name="{{$post->title}}">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger m-1">Delete</button>
+                                <button type="submit" class="btn btn-danger m-1" style="width: 40px; height: 40px"> <i class="fa-solid fa-trash-can"></i> </button>
                             </form>
                         </td>
                     </tr>

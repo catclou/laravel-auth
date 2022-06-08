@@ -18,14 +18,19 @@
 
     <!-- Styles (IN QUESTO FILE INSERIREMMO SASS) -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- CDN per FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm d-flex">
+            <div class="container d-flex align-content-center w-100 align-self-center mt-2">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <img src="https://yt3.ggpht.com/ytc/AKedOLTO2XVhtyMr24Dnz6QJ-Lsj_05XHim-qMoF6PRc=s88-c-k-c0x00ffffff-no-rj" alt="" width="45px">
+                    <span>Boolpress</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -75,7 +80,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-5 bg-dark d-flex flex-column p-5">
             @yield('content')
         </main>
 
